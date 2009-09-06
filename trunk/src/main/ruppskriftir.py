@@ -25,7 +25,7 @@ class Ruppskriftir:
             f = open(path, 'w')
         except IOError:
             print 'cannot open', path
-        
+
         pickle.dump(object, f)
         f.close()
             
@@ -49,8 +49,9 @@ class Ruppskriftir:
         return path
     
 def main():
+    listi = [(1,"Halló Heimur"),(2,"Halló Heimur"),(3,"Halló Heimur")]
     uppsrkiftir = Ruppskriftir()
-    uppsrkiftir.skrifaSkra("Halló Heimur")
+    uppsrkiftir.skrifaSkra(listi)
     print uppsrkiftir.lesaSkra()
 
 if __name__== "__main__": main()

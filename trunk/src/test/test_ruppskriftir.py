@@ -20,7 +20,8 @@ class TestRuppskriftir(unittest.TestCase):
         self.uppskrift.buaTilUppskrift()
         
     def testSkrifaSkra(self):
-        self.uppskrift.skrifaSkra(None)
+        listi = [(1,"Halló Heimur"),(2,"Halló Heimur"),(3,"Halló Heimur")]
+        self.uppskrift.skrifaSkra(listi)
 
     def testLesaSkra(self):
         object = self.uppskrift.lesaSkra()
