@@ -1,5 +1,5 @@
 # encoding: utf-8
-import unittest
+import unittest, os
 from main.ruppskriftir import Ruppskriftir
 
 class TestRuppskriftir(unittest.TestCase):
