@@ -24,5 +24,8 @@ class TestRuppskriftir(unittest.TestCase):
 
     def testLesaSkra(self):
         self.uppskrift.lesaSkra()
-
+        
+    def tearDown(self):
+        self.uppskrift = None
+        
 if __name__ == '__main__': unittest.main()

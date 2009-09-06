@@ -8,7 +8,7 @@ class Ruppskriftir:
         self.nafnInnihald = ""
         self.endurkvaemt = False
     
-    # Falls sem á að skrifa út umbeðna uppskrift    
+    # Fall sem á að skrifa út umbeðna uppskrift    
     def innihald(self, magn, eining, vara, innihald="", endurkvaemt=False):
         pass
     
