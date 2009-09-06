@@ -1,3 +1,4 @@
+# encoding: utf-8
 import unittest
 from main.ruppskriftir import Ruppskriftir
 
@@ -9,17 +10,19 @@ class TestRuppskriftir(unittest.TestCase):
     innihald = ""
     endurkvaemt = False
     
+    def setUp(self):
+        self.uppskrift = Ruppskriftir()
+    
     def testInnihald(self):
-        uppskrift = Ruppskriftir()
-        uppskrift.innihald(self.magn, self.eining, self.vara, self.innihald, self.endurkvaemt)
+        self.uppskrift.innihald(self.magn, self.eining, self.vara, self.innihald, self.endurkvaemt)
     
     def testBuaTilUppskrift(self):
-        uppskrift = Ruppskriftir()
-        uppskrift.buaTilUppskrift()
+        self.uppskrift.buaTilUppskrift()
         
     def testSkrifaSkra(self):
-        pass
+        self.uppskrift.skrifaSkra()
 
-    # Fall sem les uppúr skrá
     def testLesaSkra(self):
-        pass
+        self.uppskrift.lesaSkra()
+
+if __name__ == '__main__': unittest.main()
