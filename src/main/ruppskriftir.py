@@ -1,5 +1,5 @@
 # encoding: utf-8
-import os, pickle
+import os, sys, pickle
 
 class Ruppskriftir:
     
@@ -9,6 +9,7 @@ class Ruppskriftir:
         self.vara = ""
         self.nafnInnihald = ""
         self.endurkvaemt = False
+        self.path = self.setPath()
     
     # Fall sem á að skrifa út umbeðna uppskrift    
     def innihald(self, magn, eining, vara, innihald="", endurkvaemt=False):
@@ -20,30 +21,39 @@ class Ruppskriftir:
     
     # Fall sem skrifar í skrá
     def skrifaSkra(self,object):
-        path = self.getPath()
+        path = self.path
         try:
             f = open(path, 'w')
             pickle.dump(object, f)
             f.close()
-        except IOError:
-            print 'cannot open', path
+        except IOError as (errno, picklerror):
+            print "I/O error({0}): {1}".format(errno, picklerror)
+        except pickle.PickleError:
+            print "Picle error."
+        except:
+            print "Unexpected error:", sys.exc_info()[0]
+            raise
             
     # Fall sem les uppúr skrá
     def lesaSkra(self):
         f = None
-        path = self.getPath()
+        path = self.path
         try:
             f = open(path, 'r')
             object = pickle.load(f)
             f.close()
             return object
-        except IOError:
-            print 'cannot open', path
+        except IOError as (errno, picklerror):
+            print "I/O error({0}): {1}".format(errno, picklerror)
+        except pickle.PickleError:
+            print "Picle error."
+        except:
+            print "Unexpected error:", sys.exc_info()[0]
+            raise
       
-    def getPath(self):
+    def setPath(self):
         os.chdir(os.getcwd() + '/../..')
         path = os.getcwd()
-        #print path
         path = path + os.sep + 'tmp' + os.sep + 'gogn'
         return path
     
