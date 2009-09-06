@@ -23,11 +23,10 @@ class Ruppskriftir:
         path = self.getPath()
         try:
             f = open(path, 'w')
+            pickle.dump(object, f)
+            f.close()
         except IOError:
             print 'cannot open', path
-
-        pickle.dump(object, f)
-        f.close()
             
     # Fall sem les uppúr skrá
     def lesaSkra(self):
@@ -35,13 +34,12 @@ class Ruppskriftir:
         path = self.getPath()
         try:
             f = open(path, 'r')
+            object = pickle.load(f)
+            f.close()
+            return object
         except IOError:
             print 'cannot open', path
-        
-        object = pickle.load(f)
-        f.close()
-        return object
-        
+      
     def getPath(self):
         os.chdir(os.getcwd() + '/../..')
         path = os.getcwd()
@@ -52,7 +50,7 @@ class Ruppskriftir:
 def main():
     listi = { 'einingar': {'bolli': (200,'g'), 'msk':(15,'ml')} }
     uppsrkiftir = Ruppskriftir()
-#    uppsrkiftir.skrifaSkra(listi)
+    uppsrkiftir.skrifaSkra(listi)
     listi = uppsrkiftir.lesaSkra()
     print listi
 
