@@ -31,9 +31,10 @@ class Ruppskriftir:
             
     # Fall sem les uppúr skrá
     def lesaSkra(self):
+        f = None
         path = self.getPath()
         try:
-            f = open(path, 'r+')
+            f = open(path, 'r')
         except IOError:
             print 'cannot open', path
         
@@ -45,13 +46,14 @@ class Ruppskriftir:
         os.chdir(os.getcwd() + '/../..')
         path = os.getcwd()
         #print path
-        path = path + os.sep + 'tmp' + os.sep + 'workfile'
+        path = path + os.sep + 'tmp' + os.sep + 'gogn'
         return path
     
 def main():
-    listi = [(1,"Halló Heimur"),(2,"Halló Heimur"),(3,"Halló Heimur")]
+    listi = { 'einingar': {'bolli': (200,'g'), 'msk':(15,'ml')} }
     uppsrkiftir = Ruppskriftir()
-    uppsrkiftir.skrifaSkra(listi)
-    print uppsrkiftir.lesaSkra()
+#    uppsrkiftir.skrifaSkra(listi)
+    listi = uppsrkiftir.lesaSkra()
+    print listi
 
 if __name__== "__main__": main()
