@@ -6,13 +6,20 @@ class TestRuppskriftir(unittest.TestCase):
     magn = ""
     eining = ""
     vara = ""
-    innihald= ""
-    endurkvaemt=False
+    innihald = ""
+    endurkvaemt = False
     
     def testInnihald(self):
         uppskrift = Ruppskriftir()
-        uppskrift.innihald(self.magn,self.eining,self.vara,self.innihald,self.endurkvaemt)
+        uppskrift.innihald(self.magn, self.eining, self.vara, self.innihald, self.endurkvaemt)
     
     def testBuaTilUppskrift(self):
         uppskrift = Ruppskriftir()
         uppskrift.buaTilUppskrift()
+        
+    def testSkrifaSkra(self):
+        pass
+
+    # Fall sem les uppúr skrá
+    def testLesaSkra(self):
+        pass
