@@ -50,6 +50,7 @@ class Ruppskriftir:
     
 def main():
     uppsrkiftir = Ruppskriftir()
+    uppsrkiftir.skrifaSkra("Halló Heimur")
     print uppsrkiftir.lesaSkra()
 
 if __name__== "__main__": main()
