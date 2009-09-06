@@ -20,11 +20,12 @@ class TestRuppskriftir(unittest.TestCase):
         self.uppskrift.buaTilUppskrift()
         
     def testSkrifaSkra(self):
-        self.uppskrift.skrifaSkra()
+        self.uppskrift.skrifaSkra(None)
 
     def testLesaSkra(self):
-        self.uppskrift.lesaSkra()
-        
+        object = self.uppskrift.lesaSkra()
+        print object
+    
     def tearDown(self):
         self.uppskrift = None
         
