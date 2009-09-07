@@ -3,13 +3,13 @@ import os, sys, pickle
 
 class Ruppskriftir:
     
-    def __init__(self):
+    def __init__(self,currdir=None):
         self.magn = ""
         self.eining = ""
         self.vara = ""
         self.nafnInnihald = ""
         self.endurkvaemt = False
-        self.path = self.setPath()
+        self.path = self.setPath(currdir)
     
     # Fall sem á að skrifa út umbeðna uppskrift    
     def innihald(self, magn, eining, vara, innihald="", endurkvaemt=False):
@@ -51,17 +51,23 @@ class Ruppskriftir:
             print "Unexpected error:", sys.exc_info()[0]
             raise
       
-    def setPath(self):
-        os.chdir(os.getcwd() + '/../..')
+    def setPath(self,currdir):
+        if currdir == None:
+            os.chdir(os.getcwd() + '/../..')
+        else:
+            os.chdir(currdir + '/../..')
         path = os.getcwd()
         path = path + os.sep + 'tmp' + os.sep + 'gogn'
         return path
     
 def main():
-    listi = { 'einingar': {'bolli': (200,'g'), 'msk':(15,'ml')} }
+    listi = { 'einingar': {'bolli': (200,'g'), 'msk':[(15,'ml'),(3,'tsk')]} }
     uppsrkiftir = Ruppskriftir()
     uppsrkiftir.skrifaSkra(listi)
     listi = uppsrkiftir.lesaSkra()
     print listi
-
+    einingar = listi['einingar']
+    msk = einingar['msk']
+    print msk
+    
 if __name__== "__main__": main()
