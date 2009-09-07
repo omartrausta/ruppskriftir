@@ -58,6 +58,7 @@ class Ruppskriftir:
             os.chdir(currdir + '/../..')
         path = os.getcwd()
         path = path + os.sep + 'tmp' + os.sep + 'gogn'
+        print path
         return path
     
 def main():

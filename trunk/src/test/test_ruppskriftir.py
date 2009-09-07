@@ -22,6 +22,7 @@ class TestRuppskriftir(unittest.TestCase):
         
     def testSkrifaSkra(self):
         listi = { 'einingar': {'bolli': (200,'g'), 'msk':(15,'ml')} }
+        print self.currdir
         self.uppskrift.skrifaSkra(listi)
 
     def testLesaSkra(self):
