@@ -9,9 +9,10 @@ class TestRuppskriftir(unittest.TestCase):
     vara = ""
     innihald = ""
     endurkvaemt = False
+    currdir = os.getcwd()
     
     def setUp(self):
-        self.uppskrift = Ruppskriftir()
+        self.uppskrift = Ruppskriftir(self.currdir)
     
     def testInnihald(self):
         self.uppskrift.innihald(self.magn, self.eining, self.vara, self.innihald, self.endurkvaemt)
