@@ -46,7 +46,7 @@ class Ruppskriftir:
                     print "ég skil ekki", line
                 
         except IOError as (errno):
-            print "I/O error({0}): {1}".format(errno)
+            print "I/O error({0}): ".format(errno)
         except:
             print "Unexpected error:", sys.exc_info()[0]
             raise
@@ -57,7 +57,7 @@ class Ruppskriftir:
         else:
             os.chdir(currdir + '/../..')
         path = os.getcwd()
-        path = path + os.sep + 'tmp' + os.sep + 'testsrka.txt'
+        path = path + os.sep + 'tmp' + os.sep + 'testskra.txt'
         print path
         return path
     
