@@ -14,39 +14,39 @@ class Ruppskriftir:
     # Fall sem á að skrifa út umbeðna uppskrift    
     def innihald(self, magn, eining, vara, innihald="", endurkvaemt=False):
         pass
-    
-    # Fall gæti tekið klasa af uppskriftum
-    def buaTilUppskrift(self):
-        pass
-    
-    # Fall sem skrifar í skrá
-    def skrifaSkra(self,object):
-        path = self.path
-        try:
-            f = open(path, 'w')
-            pickle.dump(object, f)
-            f.close()
-        except IOError as (errno, picklerror):
-            print "I/O error({0}): {1}".format(errno, picklerror)
-        except pickle.PickleError:
-            print "Picle error."
-        except:
-            print "Unexpected error:", sys.exc_info()[0]
-            raise
             
     # Fall sem les uppúr skrá
     def lesaSkra(self):
-        f = None
         path = self.path
         try:
             f = open(path, 'r')
-            object = pickle.load(f)
-            f.close()
-            return object
-        except IOError as (errno, picklerror):
-            print "I/O error({0}): {1}".format(errno, picklerror)
-        except pickle.PickleError:
-            print "Picle error."
+            
+            for line in f.readline():
+                indented = line[0] == " "
+                line = line.rstrip()
+                
+                dalkar = line.split()
+                if len(dalkar) > 0:
+                    if len(dalkar) >= 6:
+                        magn, ein, nafn, er, magn2, ein2 = dalkar[:6]
+                        if len(dalkar)==7:
+                            nafn2 = dalkar[6]
+                        else:
+                            nafn2 = nafn
+                        
+                        print magn, ein, nafn, magn2, ein2, nafn2
+                elif len(dalkar) == 4:
+                    magn, ein, nafn, = dalkar[:3]
+                    print "Byrjum uppskrift", magn, ein, nafn
+                    indentline=f.readline()
+                    while len(indentline.rstrip())>0:
+                        indentline = f.readline()
+                        print "indentuð", indentline
+                else:
+                    print "ég skil ekki", line
+                
+        except IOError as (errno):
+            print "I/O error({0}): {1}".format(errno)
         except:
             print "Unexpected error:", sys.exc_info()[0]
             raise
@@ -57,18 +57,13 @@ class Ruppskriftir:
         else:
             os.chdir(currdir + '/../..')
         path = os.getcwd()
-        path = path + os.sep + 'tmp' + os.sep + 'gogn'
+        path = path + os.sep + 'tmp' + os.sep + 'testsrka.txt'
         print path
         return path
     
 def main():
-    listi = { 'einingar': {'bolli': (200,'g'), 'msk':[(15,'ml'),(3,'tsk')]} }
     uppsrkiftir = Ruppskriftir()
-    uppsrkiftir.skrifaSkra(listi)
     listi = uppsrkiftir.lesaSkra()
     print listi
-    einingar = listi['einingar']
-    msk = einingar['msk']
-    print msk
     
 if __name__== "__main__": main()
