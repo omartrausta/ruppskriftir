@@ -17,14 +17,6 @@ class TestRuppskriftir(unittest.TestCase):
     def testInnihald(self):
         self.uppskrift.innihald(self.magn, self.eining, self.vara, self.innihald, self.endurkvaemt)
     
-    def testBuaTilUppskrift(self):
-        self.uppskrift.buaTilUppskrift()
-        
-    def testSkrifaSkra(self):
-        listi = { 'einingar': {'bolli': (200,'g'), 'msk':(15,'ml')} }
-        print self.currdir
-        self.uppskrift.skrifaSkra(listi)
-
     def testLesaSkra(self):
         object = self.uppskrift.lesaSkra()
         print object
