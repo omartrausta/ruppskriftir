@@ -3,30 +3,28 @@ import os, sys
 from fractions import Fraction
 
 class Ruppskriftir:
-    
+
+    uppskrift = {}
+    uppskriftUnit = {}
+    verd = {}
+    einingar = {}
+          
     def __init__(self, currdir=None):
-        self.magn = ""
-        self.eining = ""
-        self.vara = ""
-        self.nafnInnihald = ""
-        self.endurkvaemt = False
         self.path = self.setPath(currdir)
-        self.uppskrift = {}
-        self.uppskriftUnit = {}
-        self.verd = {}
-        self.einingar = {}
+        self.lesaSkra()
+
     
-    # Fall sem á að skrifa út umbeðna uppskrift    
+    # Fall sem � a� skrifa �t umbe�na uppskrift    
     def innihald(self, magn, eining, vara, innihald="", endurkvaemt=False):
-        pass
+        print self.uppskrift[vara]
             
-    # Fall sem les uppúr skrá
+    # Fall sem les upp�r skr�
     def lesaSkra(self):
         path = self.path
         
         try:
             #----------------------
-            # opna og lesa úr skrá
+            # opna og lesa �r skr�
             #----------------------            
             file = open(path, 'r')
             line = file.readline()
@@ -41,11 +39,11 @@ class Ruppskriftir:
                     dalkarForm = dalkarUpphaf + dalkar
                 if (len(dalkar) == 3 or len(dalkar) == 7):
                     #----------------------
-                    # setja inn inn í dictonary
+                    # setja inn inn � dictonary
                     #----------------------
                     
                     #----------------------
-                    # ef stak 3 og 6 eru eins setjum við inn í einingar
+                    # ef stak 3 og 6 eru eins setjum vi� inn � einingar
                     #----------------------
                     if dalkarForm[2] == dalkarForm[6]:
                         #print dalkarForm[2]
@@ -59,15 +57,15 @@ class Ruppskriftir:
                         else:
                             self.einingar[dalkarForm[2]] = tup
                     #----------------------
-                    # setja inn verð á einingum í verd
+                    # setja inn ver� � einingum � verd
                     #----------------------                            
                     if dalkarForm[6] == "peningar":
                         verdPerUnit = float(dalkarForm[4]) / float(dalkarForm[0])
                         self.verd[dalkarForm[2]] = (dalkarForm[1], verdPerUnit)
                     #----------------------
-                    # setja inn í uppskriftir og uppskriftirUnit
-                    # uppskrfitirUnit halda utan um grunneiningu sem fæst með því að 
-                    # vinna úr uppskrift
+                    # setja inn � uppskriftir og uppskriftirUnit
+                    # uppskrfitirUnit halda utan um grunneiningu sem f�st me� �v� a� 
+                    # vinna �r uppskrift
                     #----------------------
                     if dalkarForm[2] != dalkarForm[6] and dalkarForm[6] != "peningar":
                         magn = Fraction(int(dalkarForm[4]), int(dalkarForm[0]))
@@ -106,8 +104,9 @@ class Ruppskriftir:
     
 def main():
     uppsrkiftir = Ruppskriftir()
-    listi = uppsrkiftir.lesaSkra()
-    print listi
+    #listi = uppsrkiftir.lesaSkra()
+    print uppsrkiftir.innihald("","","sósa")
+    #print listi
     
 if __name__ == "__main__": main()
 
