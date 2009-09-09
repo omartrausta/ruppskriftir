@@ -16,7 +16,9 @@ class Ruppskriftir:
     
     # Fall sem � a� skrifa �t umbe�na uppskrift    
     def innihald(self, magn, eining, vara, innihald="", endurkvaemt=False):
-        print self.uppskrift[vara]
+        uppskriftVoru = self.uppskrift[vara]
+        for innihald in uppskriftVoru:
+            print  str(innihald[0]*Fraction(magn,1)) + " " + innihald[1] + " " + innihald[2]
             
     # Fall sem les upp�r skr�
     def lesaSkra(self):
@@ -80,11 +82,11 @@ class Ruppskriftir:
                             self.uppskrift[dalkarForm[2]] = tup                            
                 line = file.readline()  
                 
-            print self.einingar
-            print self.einingar["basil"][0][0]
-            print self.verd
-            print self.uppskrift
-            print self.uppskriftUnit
+            #print self.einingar
+            #print self.einingar["basil"][0][0]
+            #print self.verd
+            #print self.uppskrift
+            #print self.uppskriftUnit
                 
         except IOError as (errno):
             print "I/O error({0}): ".format(errno)
@@ -105,7 +107,8 @@ class Ruppskriftir:
 def main():
     uppsrkiftir = Ruppskriftir()
     #listi = uppsrkiftir.lesaSkra()
-    print uppsrkiftir.innihald("","","sósa")
+    #print 
+    uppsrkiftir.innihald(3,"","pepperonipizza")
     #print listi
     
 if __name__ == "__main__": main()
