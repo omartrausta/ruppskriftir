@@ -5,13 +5,15 @@
 1 kg * er 1 l *
 1 l * er 1000 g *
 1 dl * er 100 ml *
+1 kg * er 200 tsk *
+1 klst * er 60 mín *
 
 1 glas basil er 10 msk basil
-1 pakki ger er 6 msk ger
+1 ger pakki er 6 msk ger
 1 stk pepperonipizza er 300 g pepperonipizza
 1 l hveiti er 800 g hveiti
 
-1 gerpakki ger er 200 kr peningar
+1 ger gerpakki er 200 kr peningar
 1 dós tómatar er 120 kr peningar
 1 glas basil er 300 kr peningar
 1 kg hveiti er 260 kr peningar
