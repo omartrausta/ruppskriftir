@@ -4,11 +4,6 @@ from main.ruppskriftir import Ruppskriftir
 
 class TestRuppskriftir(unittest.TestCase):
     
-    magn = ""
-    eining = ""
-    vara = ""
-    innihald = ""
-    endurkvaemt = False
     currdir = os.getcwd()
     
     def setUp(self):
