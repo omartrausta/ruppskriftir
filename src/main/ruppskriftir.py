@@ -8,6 +8,7 @@ class Ruppskriftir:
     uppskriftUnit = {}
     verd = {}
     einingar = {}
+    g = 0
           
     def __init__(self, currdir=None):
         self.path = self.setPath(currdir)
@@ -27,9 +28,21 @@ class Ruppskriftir:
             except:
                 print "Uppskrift fyrir", vara, "fannst ekki"
         elif endurkvaemt == True:
-            print "endurkvæmt er True æði"
+            self.endurkvaemt(magn,eining,vara)
             
-            
+    def endurkvaemt(self,magn,eining,vara):
+        self.g +=5
+        print " "*self.g,"inniheldur",vara
+        uppskriftVoru = self.uppskrift[vara]
+        for innih in uppskriftVoru:
+            print " "*self.g + "inniheldur " +  str(innih[0] * Fraction(magn, 1)) + " " + innih[1] + " " + innih[2]
+            if innih[2] in self.uppskrift.keys():
+                print " "*self.g,innih[2],"á sér undiruppskrift"
+                self.endurkvaemt(innih[0],innih[1],innih[2])
+        self.g-=5      
+        
+        
+                
                   
     # Fall sem les upp�r skr�
     def lesaSkra(self):
@@ -118,7 +131,7 @@ class Ruppskriftir:
 def main():
     uppsrkiftir = Ruppskriftir()
     #listi = uppsrkiftir.lesaSkra()
-    uppsrkiftir.innihald(3, "", "pizzubotn","salt",True)
+    uppsrkiftir.innihald(3, "", "pepperonipizza","salt",True)
     #print listi
     
 if __name__ == "__main__": main()
