@@ -12,35 +12,35 @@
 1 l hveiti er 800 g hveiti
 
 1 gerpakki ger er 200 kr peningar
-1 dós tómatar er 120 kr peningar
+1 dÃ³s tÃ³matar er 120 kr peningar
 1 glas basil er 300 kr peningar
 1 kg hveiti er 260 kr peningar
 1 kg salt er 160 kr peningar
 1 klst vinna er 5000 kr peningar
-1 l olía er 300 kr peningar
-1 mín ofn er 50 kr peningar
-1 mín hella er 5 kr peningar
-1 stk papríka er 60 kr peningar
-30 stk pepperóni er 300 kr peningar
+1 l olÃ­a er 300 kr peningar
+1 mÃ­n ofn er 50 kr peningar
+1 mÃ­n hella er 5 kr peningar
+1 stk paprÃ­ka er 60 kr peningar
+30 stk pepperÃ³ni er 300 kr peningar
 
 1 stk pizzubotn er
 	 300 g hveiti
 	 1 tsk salt
 	 2 tsk ger
-	 20 mín vinna
-	 10 mín ofn
+	 20 mÃ­n vinna
+	 10 mÃ­n ofn
 
-10 l sósa er
-	 40 dós tómatar
-	 1 l olía
+10 l sÃ³sa er
+	 40 dÃ³s tÃ³matar
+	 1 l olÃ­a
 	 40 msk basil
-	 60 mín hella
-	 10 mín vinna
+	 60 mÃ­n hella
+	 10 mÃ­n vinna
 
 1 stk pepperonipizza er
 	 1 stk pizzubotn
-	 5 dl sósa
-	 10 stk pepperóni
-	 1 stk papríka
-	 5 mín vinna
+	 5 dl sÃ³sa
+	 10 stk pepperÃ³ni
+	 1 stk paprÃ­ka
+	 5 mÃ­n vinna
 	 
