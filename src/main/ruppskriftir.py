@@ -16,13 +16,21 @@ class Ruppskriftir:
     
     # Fall sem � a� skrifa �t umbe�na uppskrift    
     def innihald(self, magn, eining, vara, innihald="", endurkvaemt=False):
-        uppskriftVoru = self.uppskrift[vara]
-        for innih in uppskriftVoru:
-            if innihald == "":
-                print  str(innih[0]*Fraction(magn,1)) + " " + innih[1] + " " + innih[2]
-            elif innihald == innih[2]:
-                print  str(innih[0]*Fraction(magn,1)) + " " + innih[1] + " " + innih[2]
+        if endurkvaemt == False:
+            try:
+                uppskriftVoru = self.uppskrift[vara]
+                for innih in uppskriftVoru:
+                    if innihald == "":
+                        print  str(innih[0] * Fraction(magn, 1)) + " " + innih[1] + " " + innih[2]
+                    elif innihald == innih[2]:
+                        print  str(innih[0] * Fraction(magn, 1)) + " " + innih[1] + " " + innih[2]
+            except:
+                print "Uppskrift fyrir", vara, "fannst ekki"
+        elif endurkvaemt == True:
+            print "endurkvæmt er True æði"
             
+            
+                  
     # Fall sem les upp�r skr�
     def lesaSkra(self):
         path = self.path
@@ -110,8 +118,7 @@ class Ruppskriftir:
 def main():
     uppsrkiftir = Ruppskriftir()
     #listi = uppsrkiftir.lesaSkra()
-    #print 
-    uppsrkiftir.innihald(3,"","pepperonipizza","vinna")
+    uppsrkiftir.innihald(3, "", "pizzubotn","salt",True)
     #print listi
     
 if __name__ == "__main__": main()
