@@ -15,11 +15,10 @@ class TestRuppskriftir(unittest.TestCase):
         self.uppskrift = Ruppskriftir(self.currdir)
     
     def testInnihald(self):
-        self.uppskrift.innihald(self.magn, self.eining, self.vara, self.innihald, self.endurkvaemt)
+        self.uppskrift.innihald(3, "stk", "pepperonipizza","salt",True)
     
     def testLesaSkra(self):
         object = self.uppskrift.lesaSkra()
-        print object
     
     def tearDown(self):
         self.uppskrift = None
