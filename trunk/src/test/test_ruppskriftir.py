@@ -15,7 +15,7 @@ class TestRuppskriftir(unittest.TestCase):
         self.uppskrift = Ruppskriftir(self.currdir)
     
     def testInnihald(self):
-        self.uppskrift.innihald(3, "stk", "pepperonipizza","salt",True)
+        self.uppskrift.innihald(3, "stk", "pepperonipizza")
     
     def testLesaSkra(self):
         object = self.uppskrift.lesaSkra()

@@ -157,7 +157,7 @@ class Ruppskriftir:
     
 def main():
     uppsrkiftir = Ruppskriftir()
-    uppsrkiftir.innihald(3, "stk", "pepperonipizza","salt",True)
+    uppsrkiftir.innihald(3, "", "pepperonipizza","")
     
 if __name__ == "__main__": main()
 
