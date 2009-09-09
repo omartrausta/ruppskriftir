@@ -17,8 +17,11 @@ class Ruppskriftir:
     # Fall sem � a� skrifa �t umbe�na uppskrift    
     def innihald(self, magn, eining, vara, innihald="", endurkvaemt=False):
         uppskriftVoru = self.uppskrift[vara]
-        for innihald in uppskriftVoru:
-            print  str(innihald[0]*Fraction(magn,1)) + " " + innihald[1] + " " + innihald[2]
+        for innih in uppskriftVoru:
+            if innihald == "":
+                print  str(innih[0]*Fraction(magn,1)) + " " + innih[1] + " " + innih[2]
+            elif innihald == innih[2]:
+                print  str(innih[0]*Fraction(magn,1)) + " " + innih[1] + " " + innih[2]
             
     # Fall sem les upp�r skr�
     def lesaSkra(self):
@@ -108,7 +111,7 @@ def main():
     uppsrkiftir = Ruppskriftir()
     #listi = uppsrkiftir.lesaSkra()
     #print 
-    uppsrkiftir.innihald(3,"","pepperonipizza")
+    uppsrkiftir.innihald(3,"","pepperonipizza","vinna")
     #print listi
     
 if __name__ == "__main__": main()
