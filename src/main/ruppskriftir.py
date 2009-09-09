@@ -35,14 +35,35 @@ class Ruppskriftir:
         print " "*self.g,"inniheldur",vara
         uppskriftVoru = self.uppskrift[vara]
         for innih in uppskriftVoru:
+            #print " "*self.g + "inniheldur " +  str(innih[0] * Fraction(magn, 1)) + " " + innih[1] + " " + innih[2] + " " + str(self.summaVerd(innih[0],innih[1],innih[2]))
             print " "*self.g + "inniheldur " +  str(innih[0] * Fraction(magn, 1)) + " " + innih[1] + " " + innih[2]
+            self.summaVerd(innih[0],innih[1],innih[2])
             if innih[2] in self.uppskrift.keys():
-                print " "*self.g,innih[2],"á sér undiruppskrift"
+                print " "*self.g,innih[2],"á sér undiruppskrift" 
                 self.endurkvaemt(innih[0],innih[1],innih[2])
+                
+                #print self.finnaVerd(eining)
+                #print self.summaVerd(magn, finnaVerd(eining), eining)
         self.g-=5      
         
         
-                
+            
+    def summaVerd(self,magn, maelieining, eining):
+        print eining
+        print maelieining
+        print magn
+        
+        if eining in self.einingar.keys():
+            tup = self.einingar[eining]
+            print "tup=",tup
+        else:
+            print "hmmm"
+            #return Fraction(magn, 1)/eining*self.finnaVerd(eining)
+    
+    def finnaVerd(self,eining):
+        if eining in self.verd.keys():
+            einingVerd = self.verd[eining]
+            return einingVerd[1]
                   
     # Fall sem les upp�r skr�
     def lesaSkra(self):
@@ -106,7 +127,7 @@ class Ruppskriftir:
                             self.uppskrift[dalkarForm[2]] = tup                            
                 line = file.readline()  
                 
-            #print self.einingar
+            print self.einingar
             #print self.einingar["basil"][0][0]
             #print self.verd
             #print self.uppskrift
@@ -131,7 +152,7 @@ class Ruppskriftir:
 def main():
     uppsrkiftir = Ruppskriftir()
     #listi = uppsrkiftir.lesaSkra()
-    uppsrkiftir.innihald(3, "", "pepperonipizza","salt",True)
+    uppsrkiftir.innihald(3, "stk", "pepperonipizza","salt",True)
     #print listi
     
 if __name__ == "__main__": main()
