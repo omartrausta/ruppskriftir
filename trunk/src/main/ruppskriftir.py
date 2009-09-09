@@ -1,5 +1,6 @@
 # encoding: utf-8
-import os, sys, pickle
+import os, sys, pickle 
+from fractions import Fraction
 
 class Ruppskriftir:
     
@@ -18,62 +19,51 @@ class Ruppskriftir:
     # Fall sem les uppúr skrá
     def lesaSkra(self):
         path = self.path
+        uppskrift = {}
+        verd = {}
+        einingar = {}
+        
         try:
             file = open(path, 'r')
             line = file.readline()
             while len(line)> 0:
                 line = line.rstrip()
                 dalkar = line.split()
-                #if len(dalkar) == 0:
-                    #print "auð lína"
                 if len(dalkar) == 4:
-                    #print "uppskrift upphaf"
                     dalkarUpphaf = dalkar
-                    # print dalkar
                 if len(dalkar) == 7:
-                    #print "heil lína"
                     dalkarForm = dalkar
-                    #print dalkar
                 if len(dalkar) == 3:
                     dalkarForm = dalkarUpphaf + dalkar
-                    #print "uppskrift indent"
-                    #print dalkar
-                #print dalkar
-                #print len(dalkar)
-                print dalkarForm
+                #print dalkarForm
+                if (len(dalkar) == 3 or len(dalkar) == 7):
+                    # setja inn inn í dictonary
+                    # ef stak 3 og 6 eru eins setjum við inn í einingar
+                    if dalkarForm[2] == dalkarForm[6]:
+                        print dalkarForm[2]
+                        fractEin = Fraction(int(dalkarForm[4]),int(dalkarForm[0]))
+                        eining = dalkarForm[5]
+                        unit = dalkarForm[1]
+                        tup = [(unit,fractEin,eining)]
+                        if einingar.has_key(dalkarForm[2]):
+                            #tupListi = []
+                            tupEin = einingar[dalkarForm[2]] + tup
+                            #tupListi.append(tupEin)
+                            #tupEin.append(tup)
+                            einingar[dalkarForm[2]]=tupEin
+                        else:
+                            einingar[dalkarForm[2]]=tup
+      
+
+                #if dalkarForm[2] == dalkarForm[6]:
+                    #print dalkarForm[2]
+                
                 
                 line = file.readline()  
                 
-             
-
-                
-                
-                
-            #===================================================================
-            # for line in f.readline():
-            #    indented = line[0] == " "
-            #    line = line.rstrip()
-            #    
-            #    dalkar = line.split()
-            #    if len(dalkar) > 0:
-            #        if len(dalkar) >= 6:
-            #            magn, ein, nafn, er, magn2, ein2 = dalkar[:6]
-            #            if len(dalkar)==7:
-            #                nafn2 = dalkar[6]
-            #            else:
-            #                nafn2 = nafn
-            #            
-            #            print magn, ein, nafn, magn2, ein2, nafn2
-            #    elif len(dalkar) == 4:
-            #        magn, ein, nafn, = dalkar[:3]
-            #        print "Byrjum uppskrift", magn, ein, nafn
-            #        indentline=f.readline()
-            #        while len(indentline.rstrip())>0:
-            #            indentline = f.readline()
-            #            print "indentuð", indentline
-            #    else:
-            #        print "ég skil ekki", line
-            #===================================================================
+            #ars = einingar["*"]
+            print einingar
+            print einingar["basil"][0][0]
                 
         except IOError as (errno):
             print "I/O error({0}): ".format(errno)
@@ -94,6 +84,6 @@ class Ruppskriftir:
 def main():
     uppsrkiftir = Ruppskriftir()
     listi = uppsrkiftir.lesaSkra()
-    print listi
+    #print listi
     
 if __name__== "__main__": main()

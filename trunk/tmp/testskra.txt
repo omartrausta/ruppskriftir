@@ -8,7 +8,7 @@
 
 1 glas basil er 10 msk basil
 1 pakki ger er 6 msk ger
-1 stk pizza er 300 g pizza
+1 stk pepperonipizza er 300 g pepperonipizza
 1 l hveiti er 800 g hveiti
 
 1 gerpakki ger er 200 kr peningar
@@ -43,3 +43,4 @@
 	 10 stk pepperóni
 	 1 stk papríka
 	 5 mín vinna
+	 
